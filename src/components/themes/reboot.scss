@@ -1,0 +1,10 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,600,700');
+
+@import './variables.scss';
+
+body {
+  font-family: $font-family-base;
+  font-size: $font-size-base;
+  text-align: left;
+  background-color: $body-color;
+}

@@ -395,8 +395,6 @@ module.exports = function(webpackEnv) {
               use: getStyleLoaders({
                 importLoaders: 1,
                 sourceMap: isEnvProduction && shouldUseSourceMap,
-                modules: true,
-                localIdentName: '[name]__[local]___[hash:base64:5]',
               }),
               // Don't consider CSS imports dead code even if the
               // containing package claims to have no side effects.
@@ -425,6 +423,8 @@ module.exports = function(webpackEnv) {
                 {
                   importLoaders: 2,
                   sourceMap: isEnvProduction && shouldUseSourceMap,
+                  modules: true,
+                  localIdentName: '[name]__[local]___[hash:base64:5]',
                 },
                 'sass-loader'
               ),

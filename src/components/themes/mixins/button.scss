@@ -1,0 +1,14 @@
+@mixin button-color($color) {
+  color: $color;
+  border-bottom-color: $color;
+
+  &:after {
+    border-bottom: 1rem solid $color;
+    border-left: 1rem solid transparent;
+  }
+}
+
+@mixin button-color__floating($color) {
+  color: #fff;
+  background-color: $color;
+}

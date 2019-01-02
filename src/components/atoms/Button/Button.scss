@@ -1,0 +1,70 @@
+@import '../../themes/variables.scss';
+@import '../../themes/mixins/button.scss';
+
+.wrapper {
+  position: relative;
+  display: inline-block;
+  padding: 0.5rem 1.5rem;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: $font-weight-semibold;
+  color: $secondary-color;
+  letter-spacing: 0.234375rem;
+  text-transform: uppercase;
+  outline: none;
+  border: none;
+  border-bottom: 0.25rem solid $secondary-color;
+  cursor: pointer;
+
+  &:after {
+    position: absolute;
+    bottom: 0.5rem;
+    right: -1.5rem;
+    content: '';
+    width: 0;
+    height: 0;
+  }
+}
+
+.floating {
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border-radius: 50%;
+  border: none !important;
+
+  &:after {
+    display: none;
+  }
+
+  @each $color, $value in $colors {
+    &.#{$color} {
+      @include button-color__floating($value);
+
+      &:hover {
+        @include button-color__floating(lighten($value, 20%));
+      }
+
+      &:active {
+        @include button-color__floating(darken($value, 20%));
+      }
+    }
+  }
+}
+
+@each $color, $value in $colors {
+  .#{$color} {
+    @include button-color($value);
+
+    &:hover {
+      @include button-color(lighten($value, 20%));
+    }
+
+    &:active {
+      @include button-color(darken($value, 20%));
+    }
+  }
+}
